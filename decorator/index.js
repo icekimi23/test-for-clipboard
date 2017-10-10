@@ -11,7 +11,7 @@ const Whip = require('./condiment').Whip;
 
 let espresso = new Espresso();
 // декорируем наш кофе
-espresso.setSize('L');
+espresso.setSize('M');
 espresso = new Mocha(espresso);
 espresso = new Soy(espresso);
 espresso = new Whip(espresso);

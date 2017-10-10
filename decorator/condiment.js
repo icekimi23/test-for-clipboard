@@ -1,7 +1,9 @@
-// абстрактный класс для добавок (в java должне наследовать от Beverage для согласования типов и фишек полиморфизма, в js это конечно не обязательно)
-class CondimentDecorator{
-    constructor(){
+let Beverage = require('./beverage').Beverage;
 
+// абстрактный класс для добавок (в java должне наследовать от Beverage для согласования типов и фишек полиморфизма, в js это конечно не обязательно)
+class CondimentDecorator extends Beverage{
+    constructor(){
+        super();
     }
 
     // абстрактный класс, все разновидности добавок должны реализовать этот метод
@@ -9,13 +11,6 @@ class CondimentDecorator{
 
     }
 
-    setSize(size){
-        this.size = size;
-    }
-
-    getSize(){
-        return this.size;
-    }
 }
 
 // класс конкретного дополнения для кофе

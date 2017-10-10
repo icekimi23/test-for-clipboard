@@ -53,6 +53,7 @@ class HouseBlend extends Beverage{
 }
 
 module.exports = {
+    Beverage : Beverage,
     Espresso : Espresso,
     HouseBlend : HouseBlend
 };
