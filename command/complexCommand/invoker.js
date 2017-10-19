@@ -3,8 +3,12 @@ let noCommand = require('./command').noCommand;
 // ИНИЦИАТОР - объект запускающий команду на выполнение (пульт управления с 5-ю кнопками в нашем примере)
 class SimpleRemoteControl {
     constructor() {
+        // кнопки включения
         this.onCommands = [];
+        // кнопки выключения
         this.offCommands = [];
+        // кнопка глобальной отмены
+        this.undoCommand = null;
         this._init();
     }
 
@@ -14,6 +18,7 @@ class SimpleRemoteControl {
             this.onCommands.push(new noCommand());
             this.offCommands.push(new noCommand());
         }
+        this.undoCommand = new noCommand();
     }
 
     // установить объект комманды в слот
@@ -25,11 +30,17 @@ class SimpleRemoteControl {
     // имитация нажатия кнопки включения
     onButtonWasPressed(slot) {
         this.onCommands[slot].execute();
+        this.undoCommand = this.onCommands[slot];
     }
 
     // имитация нажатия кнопки выключения
     offButtonWasPressed(slot) {
         this.offCommands[slot].execute();
+        this.undoCommand = this.offCommands[slot];
+    }
+
+    undoButtonWasPressed(){
+        this.undoCommand.undo();
     }
 
     toString() {

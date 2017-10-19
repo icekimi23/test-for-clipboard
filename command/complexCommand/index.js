@@ -30,7 +30,9 @@ simpleRemoteControl.setCommand(2, stereoOnCommand, stereoOffCommand);
 // нажимаем кнопки
 simpleRemoteControl.onButtonWasPressed(0);
 simpleRemoteControl.offButtonWasPressed(0);
+simpleRemoteControl.undoButtonWasPressed();
 simpleRemoteControl.onButtonWasPressed(1);
 simpleRemoteControl.offButtonWasPressed(1);
 simpleRemoteControl.onButtonWasPressed(2);
 simpleRemoteControl.offButtonWasPressed(2);
+

@@ -1,10 +1,16 @@
 // абстрактный класс (вместо интерфейса)
-class Command{
-    constructor(){
+class Command {
+    constructor() {
         this.name = '';
     }
+
     // абстрактный метод выполнения действий ПОЛУЧАТЕЛЕЙ
-    execute(){
+    execute() {
+
+    }
+
+    // абстрактный метод отмены действия
+    undo(){
 
     }
 
@@ -27,6 +33,10 @@ class LightOnCommand extends Command{
     execute(){
         this.light.on();
     }
+
+    undo(){
+        this.light.off();
+    }
 }
 
 // КОМАНДА для управления выключением света - реализет интерфейс Command
@@ -41,6 +51,10 @@ class LightOffCommand extends Command{
     // метод команды, которые вызывает нужные команды получателя
     execute(){
         this.light.off();
+    }
+
+    undo(){
+        this.light.on();
     }
 }
 
